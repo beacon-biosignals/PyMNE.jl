@@ -8,9 +8,13 @@ PyCall = "438e738f-606a-5dbb-bf0a-cddfbfd45ab0"
 
 [compat]
 julia = "1"
+PyCall = "1.9"
+StableRNGs = "0.1, 1"
+
 
 [extras]
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+StableRNGs = "860ef19b-820b-49d6-a774-d7a799459cd3"
 
 [targets]
 test = ["Test"]
