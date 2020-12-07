@@ -10,7 +10,7 @@ function __init__()
 
     copy!(mne, pyimport("mne"))
 
-    include("wrappers.jl")
+    include(joinpath(@__DIR__, "wrappers.jl"))
 
     # TODO: examine how to do wrappers for subsubmodules. for now it's not a huge deal
     #       because the wrapper just gets put in the top-level package namespace and so
