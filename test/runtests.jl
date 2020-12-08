@@ -1,7 +1,9 @@
 using PyMNE
-using PyCall: PyError
+using PyCall
 using StableRNGs
 using Test
+
+using PyCall: PyError
 
 @testset "create_info and get_info" begin
     dat = rand(StableRNG(42), 1, 100)
