@@ -1,12 +1,11 @@
 using PyMNE
 using PyCall
-using StableRNGs
 using Test
 
 using PyCall: PyError
 
 @testset "create_info and get_info" begin
-    dat = rand(StableRNG(42), 1, 100)
+    dat = zeros(1, 100)
     naive_info = PyMNE.mne.create_info([:a], 100)
     wrapped_info = PyMNE.create_info([:a], 100)
     raw = PyMNE.io.RawArray(dat, wrapped_info)

@@ -115,8 +115,7 @@ namely Python's `mne.create_info` and the `info` property of many MNE types.
 
 ```julia
 julia> using PyMNE
-julia> using Random # for generating fake data
-julia> dat = rand(MersenneTwister(42), 1, 100); # fake data
+julia> dat = zeros(1, 100); # fake data
 julia> PyMNE.mne # direct access to the mne Python module without any wrapping
 PyObject <module 'mne' from '/home/ubuntu/.julia/conda/3/lib/python3.8/site-packages/mne/__init__.py'>
 julia> naive_info = PyMNE.mne.create_info([:a], 100) # gets converted to a Julia dictionary
