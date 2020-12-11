@@ -164,11 +164,29 @@ PyObject <Info | 7 non-empty values
  sfreq: 100.0 Hz
 >
 
-julia> PyMNE.io.RawArray(dat, wrapped_info) # now has right type
+julia> raw = PyMNE.io.RawArray(dat, wrapped_info) # now has right type
 Creating RawArray with float64 data, n_channels=1, n_times=100
     Range : 0 ... 99 =      0.000 ...     0.990 secs
 Ready.
 PyObject <RawArray | 1 x 100 (1.0 s), ~8 kB, data loaded>
+```
+
+This also leads to the only exported function `get_info`, which is just a
+type-preserving accessor the `info` property of many MNE types:
+```julia
+julia> get_info(raw)
+PyObject <Info | 7 non-empty values
+ bads: []
+ ch_names: a
+ chs: 1 MISC
+ custom_ref_applied: False
+ highpass: 0.0 Hz
+ lowpass: 50.0 Hz
+ meas_date: unspecified
+ nchan: 1
+ projs: []
+ sfreq: 100.0 Hz
+>
 ```
 
 If other automatic type conversions are found to be problematic or there are
