@@ -35,11 +35,11 @@ pip.main(["install", "mne==version_number"]) # specific version
 
 If you do not specify a version via `==version`, then the latest versions will be
 installed. If you wish to upgrade versions, you can use
-`python -m pip install --upgrade mne philistine` or
+`python -m pip install --upgrade mne` or
 ```julia
 using PyCall
 pip = pyimport("pip")
-pip.main(["install", "--upgrade", "mne", "philistine"])
+pip.main(["install", "--upgrade", "mne"])
 ```
 
 You can test your setup with `using PyCall; pyimport("mne")`.
