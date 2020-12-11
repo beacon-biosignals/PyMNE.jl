@@ -1,19 +1,35 @@
 module PyMNE
 
+#####
+##### Dependencies
+#####
+
 using PyCall
+
+#####
+##### Exports
+#####
+
+export get_info
+
+######
+###### Actual functionality
+######
+
 const mne = PyNULL()
+
+# TODO: examine how to do wrappers for subsubmodules. for now it's not a huge deal
+#       because the wrapper just gets put in the top-level package namespace and so
+#       is still accessible
+
+include("wrappers.jl")
+
 
 function __init__()
     # all of this is __init__() so that it plays nice with precompilation
     # see https://github.com/JuliaPy/PyCall.jl/#using-pycall-from-julia-modules
 
     copy!(mne, pyimport("mne"))
-
-    include(joinpath(@__DIR__, "wrappers.jl"))
-
-    # TODO: examine how to do wrappers for subsubmodules. for now it's not a huge deal
-    #       because the wrapper just gets put in the top-level package namespace and so
-    #       is still accessible
 
     # delegate everything else to mne
     for pn in propertynames(mne)
@@ -24,7 +40,5 @@ function __init__()
 
     return nothing
 end
-
-export get_info
 
 end # module
