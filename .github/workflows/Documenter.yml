@@ -1,11 +1,11 @@
 name: Documenter
+# currently disabled because all of the documentation fits in the README
 on:
   push:
-    branches: [main]
-    tags: [v*]
+    branches: [] #[main]
+    tags: [] #[v*]
   pull_request:
-    branches:
-      - main
+    branches: [] #main
 jobs:
   Documenter:
     name: Documentation
