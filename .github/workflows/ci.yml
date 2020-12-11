@@ -1,7 +1,15 @@
 name: CI
 on:
-  - push
-  - pull_request
+  push:
+      paths-ignore:
+        - 'README.md'
+      branches:
+        - main
+  pull_request:
+      paths-ignore:
+        - 'README.md'
+      branches:
+        - main
 jobs:
   test:
     name: Julia ${{ matrix.version }} - ${{ matrix.os }} - ${{ matrix.arch }} - ${{ github.event_name }}
@@ -11,7 +19,7 @@ jobs:
       matrix:
         version:
           - '1.0'
-          - '1.5'
+          - '1'
           - 'nightly'
         os:
           - ubuntu-latest
@@ -37,3 +45,7 @@ jobs:
             ${{ runner.os }}-
       - uses: julia-actions/julia-buildpkg@v1
       - uses: julia-actions/julia-runtest@v1
+      - uses: julia-actions/julia-uploadcodecov@v0.1
+        if:  ${{ startsWith(matrix.os, 'ubuntu') && (matrix.version == '1') }}
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
