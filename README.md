@@ -171,3 +171,7 @@ Creating RawArray with float64 data, n_channels=1, n_times=100
 Ready.
 PyObject <RawArray | 1 x 100 (1.0 s), ~8 kB, data loaded>
 ```
+
+If other automatic type conversions are found to be problematic or there are
+particular MNE functions that don't play nice via the default PyCall mechanisms,
+then issues and pull requests are welcome.
