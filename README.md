@@ -12,14 +12,14 @@ Julia interface to MNE-Python via PyCall
 ## Installation
 This package uses [`PyCall`](https://github.com/JuliaPy/PyCall.jl/) to make
 [MNE-Python](https://mne.tools) available from within Julia. Unsurprisingly,
-MNE-Python and  its dependencies need to be installed in order for this to work
-and PyMNE  will attempt to install when the package is built.
+MNE-Python and its dependencies need to be installed in order for this to work
+and PyMNE will attempt to install when the package is built.
 
 By default, this installation happens in the "global" path for the Python used
 by PyCall. If you're using PyCall via its hidden Miniconda install, your own
 Anaconda environment, or a Python virtual environment, this is what you want.
 (The "global" path is sandboxed to the Conda/virtual environment.) If you are
-however using system python, then you should set `ENV["PIPFLAGS"] = "--user"`
+however using system Python, then you should set `ENV["PIPFLAGS"] = "--user"`
 before `add`ing / `build`ing the package. By default, PyMNE will use the latest
 MNE release available on [PyPI](https://pypi.org/project/mne/), but this can also
 be changed via the `ENV["MNEVERSION"] = version_number` for your preferred
@@ -108,7 +108,7 @@ If an `Info` object is accessed naively from Julia, then it is converted to a
 dictionary and the subtyping is lost when passed back to Python, which can
 result in type/method errors.
 (There is [some discussion](https://github.com/JuliaPy/PyCall.jl/issues/629)
-about not automatically converting derived types in  PyCall 2.0, exactly
+about not automatically converting derived types in PyCall 2.0, exactly
 because of this.)
 To avoid this problem, PyMNE wraps a few methods to avoid this conversion,
 namely Python's `mne.create_info` and the `info` property of many MNE types.
