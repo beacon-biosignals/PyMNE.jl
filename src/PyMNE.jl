@@ -35,7 +35,6 @@ macro load_pymne()
         prop = getproperty(PyMNE.mne, pn)
         push!(assignments, Expr(:(=), pn, prop))
     end
-    display(assignments)
     Expr(:block, assignments...)
 end
 
