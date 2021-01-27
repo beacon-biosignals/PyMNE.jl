@@ -28,6 +28,8 @@ function __init__()
     # all of this is __init__() so that it plays nice with precompilation
     # see https://github.com/JuliaPy/PyCall.jl/#using-pycall-from-julia-modules
     copy!(mne, pyimport("mne"))
+    # don't eval into the module while precompiling; this breaks precompilation
+    # of downstream modules (see #4)
     if ccall(:jl_generating_output, Cint, ()) == 0
         # delegate everything else to mne
         for pn in propertynames(mne)
