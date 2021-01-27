@@ -25,16 +25,18 @@ const mne = PyNULL()
 include("wrappers.jl")
 
 function __init__()
-    # all of this is __init__() so that it plays nice with precompilation
-    # see https://github.com/JuliaPy/PyCall.jl/#using-pycall-from-julia-modules
     copy!(mne, pyimport("mne"))
-    # delegate everything else to mne
-    for pn in propertynames(mne)
+end
+
+macro load_pymne()
+    assignments = []
+    for pn in propertynames(PyMNE.mne)
         isdefined(@__MODULE__, pn) && continue
-        prop = getproperty(mne, pn)
-        @eval $pn = $prop
+        prop = getproperty(PyMNE.mne, pn)
+        push!(assignments, Expr(:(=), pn, prop))
     end
-    return nothing
+    display(assignments)
+    Expr(:block, assignments...)
 end
 
 end # module
