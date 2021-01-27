@@ -35,8 +35,11 @@ macro load_pymne()
         prop = getproperty(PyMNE.mne, pn)
         push!(assignments, Expr(:(=), pn, prop))
     end
-    expr = Expr(:block, assignments...)
-    esc(expr)
+    expr = quote module PyMNE_API
+            $(assignments...)
+        end
+    end
+    esc(Expr(:toplevel, expr.args...))
 end
 
 end # module
