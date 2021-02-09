@@ -5,8 +5,8 @@ Julia interface to MNE-Python via PyCall
 
 [build-img]: https://github.com/beacon-biosignals/PyMNE.jl/workflows/CI/badge.svg
 [build-url]: https://github.com/beacon-biosignals/PyMNE.jl/actions
-[codecov-img]: https://codecov.io/github/beacon-biosignals/PyMNE.jl/badge.svg?branch=master
-[codecov-url]: https://codecov.io/github/beacon-biosignals/PyMNE.jl?branch=master
+[codecov-img]: https://codecov.io/github/beacon-biosignals/PyMNE.jl/badge.svg?branch=main
+[codecov-url]: https://codecov.io/github/beacon-biosignals/PyMNE.jl?branch=main
 
 
 ## Installation
