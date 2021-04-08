@@ -60,6 +60,8 @@ function install_sklearn(ver="")
 
     @info "scikit-learn version:" ver
     pip.main(["install"; flags; packages])
+
+    return nothing
 end
 
 end # module
