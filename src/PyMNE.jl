@@ -41,4 +41,25 @@ function __init__()
     return nothing
 end
 
+"""
+    install_sklearn(ver="")
+
+Install scikit-learn using the specified version.
+
+The default version is the latest stable version.
+"""
+function install_sklearn(version="latest"; verbose=false)
+    verbose && @info "Installing scikit-learn"
+    pip = pyimport("pip")
+    flags = split(get(ENV, "PIPFLAGS", ""))
+    packages = ["scikit-learn" * (version == "latest" ? "" : "==$version")]
+    if verbose
+        @info "Package requirements:" packages
+        @info "Flags for pip install:" flags
+        @info "scikit-learn version:" version
+    end
+    pip.main(["install"; flags; packages])
+    return nothing
+end
+
 end # module
