@@ -4,6 +4,12 @@ using Test
 
 using PyCall: PyError
 
+@testset "sklearn" begin
+    PyMNE.install_sklearn()
+    # requires sklearn
+    @test PyMNE.preprocessing.ICA(method="fastica") isa PyObject
+end
+
 @testset "create_info and get_info" begin
     dat = zeros(1, 100)
     naive_info = PyMNE.mne.create_info([:a], 100)

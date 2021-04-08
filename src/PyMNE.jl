@@ -52,13 +52,13 @@ function install_sklearn(ver="")
     @info "Installing scikit-learn"
     pip = pyimport("pip")
     flags = split(get(ENV, "PIPFLAGS", ""))
-    packages = ["""sklearn$(isempty(ver) ? "" : "==")$(ver)"""]
+    packages = ["""scikit-learn$(isempty(ver) ? "" : "==")$(ver)"""]
 
     @info "Package requirements:" packages
     @info "Flags for pip install:" flags
     ver = isempty(ver) ? "latest" : ver
 
-    @info "sklearn version:" ver
+    @info "scikit-learn version:" ver
     pip.main(["install"; flags; packages])
 end
 
