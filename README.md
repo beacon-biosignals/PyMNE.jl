@@ -27,6 +27,8 @@ be changed via the `ENV["MNEVERSION"] = version_number` for your preferred
 the rather rapid API changes and deprecation cycle in MNE and as such, it is
 incumbent upon the user to manage these versions accordingly.
 
+Note that MNE-Python uses [scikit-learn](https://scikit-learn.org/stable/) for certain functionality (e.g. ICA and the `decoding` module), but does not install it automatically as a dependency.
+If you wish to take advantage of this functionality, the non-exported `install_sklearn` function will install `sklearn`, using the same environment variables as the main installation.
 
 MNE-Python can also be installed them manually ahead of time.
 From the shell, use `python -m pip install mne` for the latest stable release
