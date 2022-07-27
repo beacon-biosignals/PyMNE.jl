@@ -17,7 +17,8 @@ using Test
     @test pyconvert(Number, info["sfreq"]) == 100
     raw = PyMNE.io.RawArray(dat, info)
     @test pyconvert(Number, raw.n_times) == 100
-    @test pyconvert(Number, raw.n_times) isa Int
+    # XXX Python + Windows means that this may or may not be Int32 even on x64
+    @test pyconvert(Number, raw.n_times) isa Integer
     @test pyconvert(Number, raw.info["sfreq"]) == 100
     # we want elementwise precise equality
     @test all(pyconvert(AbstractArray, raw.get_data()) .== dat)
