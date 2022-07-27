@@ -2,7 +2,6 @@ using PyMNE
 using Random
 using Test
 
-
 @testset "create_info and get_info" begin
     dat = rand(1, 100)
     info = PyMNE.create_info(pylist(["a"]), 100)
