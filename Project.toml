@@ -1,18 +1,21 @@
 name = "PyMNE"
 uuid = "6c5003b2-cbe8-491c-a0d1-70088e6a0fd6"
 authors = ["Beacon Biosignals, Inc."]
-version = "0.1.2"
+version = "0.2.0"
 
 [deps]
-PyCall = "438e738f-606a-5dbb-bf0a-cddfbfd45ab0"
+CondaPkg = "992eb4ea-22a4-4c89-a5bb-47a3300528ab"
+PythonCall = "6099a3de-0909-46bc-b1f4-468b9a2dfc0d"
+Reexport = "189a3867-3050-52da-a836-e630ba90ab69"
 
 [compat]
-PyCall = "1.90"
-julia = "1"
+CondaPkg = "0.2.11"
+PythonCall = "0.9.4"
+julia = "1.6"
 
 [extras]
-PyCall = "438e738f-606a-5dbb-bf0a-cddfbfd45ab0"
+Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
 [targets]
-test = ["PyCall", "Test"]
+test = ["Random", "Test"]

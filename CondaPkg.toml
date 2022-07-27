@@ -1,0 +1,11 @@
+channels = ["anaconda", "conda-forge"]
+
+[deps]
+# Conda package names and versions
+python = ">=3.7,<4"
+# see https://mne.tools/stable/install/manual_install.html#installing-mne-python-with-all-dependencies
+# CondaPkg uses mamba by default
+mne = "=1.0"
+
+[pip.deps]
+# Pip package names and versions
