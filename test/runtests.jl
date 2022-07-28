@@ -8,7 +8,7 @@ using Test
     @test info isa Py
     @test pyconvert(String, only(info.ch_names)) == "a"
     # XXX why all the pyconvert? well comparisons of python objects give you
-    # a python boolean, so we need to explicitly convert for @OTDE
+    # a python boolean, so we need to explicitly convert for `@test`
     # this is fine because it shows usage and tests out a bit more code
     @test pyconvert(Bool, info.ch_names == info["ch_names"])
     # if this ever works after a compat bump then we know we need to change things
