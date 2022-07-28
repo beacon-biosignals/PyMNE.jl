@@ -20,7 +20,7 @@ Conda, not via pip.
 
 ## Usage
 
-In the same philosophy as Python, this allows for the transparent use of
+In the same philosophy as PythonCall, this allows for the transparent use of
 MNE-Python from within Julia.
 The major things the package does are wrap the installation of MNE in the
 package installation and load all the MNE functionality into the module
