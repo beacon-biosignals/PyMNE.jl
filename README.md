@@ -31,6 +31,17 @@ The [tests](test/runtests.jl) test a few conversion gotchas, especially
 compared to prior versions of this package, which were based on
 [PyCall](https://github.com/JuliaPy/PyCall.jl).
 
+## Hint:
+You need to explicitly convert vectors of strings to a `PyList`. For instance
+```julia
+data = raw.get_data(picks=["Oz","Cz"])
+```
+does not work, whereas 
+```julia
+data = raw.get_data(picks=pylist(["Oz","Cz"]))
+```
+works. The underlying logic is, that the [automatic conversion](https://cjdoris.github.io/PythonCall.jl/dev/pycall/#Lossiness-of-conversion) of  `["A","B"]`is to a `juliacall.VectorValue` which behaves similar to a `pyList` - but is apparently not recognized properly by MNE (a vector of int, surprisingly, works though).
+
 
 ### Exposing MNE-Python in Julia
 
