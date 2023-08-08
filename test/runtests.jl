@@ -12,7 +12,8 @@ using Test
     # this is fine because it shows usage and tests out a bit more code
     @test pyconvert(Bool, info.ch_names == info["ch_names"])
     # if this ever works after a compat bump then we know we need to change things
-    @test_broken info.ch_names == info["ch_names"]
+    # can't use `naive @test_broken` in julia 1.10+ because it now requires a bool
+    @test_broken (info.ch_names == info["ch_names"]) isa Bool
     @test pyconvert(Bool, info["sfreq"] == 100)
     @test pyconvert(Number, info["sfreq"]) == 100
     raw = PyMNE.io.RawArray(dat, info)
