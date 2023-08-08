@@ -15,8 +15,7 @@ This package uses [`PythonCall`](https://cjdoris.github.io/PythonCall.jl) to mak
 MNE-Python and its dependencies need to be installed in order for this to work
 and PyMNE will attempt to install when the package is built: this should happen
 more or less automatically via [`CondaPkg`](https://github.com/cjdoris/CondaPkg.jl).
-You can configure various options via `CondaPkg`. MNE-Python is installed via
-Conda, not via pip.
+You can configure various options via `CondaPkg`.
 
 ## Usage
 
@@ -36,7 +35,7 @@ You need to explicitly convert vectors of strings to a `PyList`. For instance
 ```julia
 data = raw.get_data(picks=["Oz","Cz"])
 ```
-does not work, whereas 
+does not work, whereas
 ```julia
 data = raw.get_data(picks=pylist(["Oz","Cz"]))
 ```

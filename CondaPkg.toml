@@ -2,10 +2,13 @@ channels = ["anaconda", "conda-forge"]
 
 [deps]
 # Conda package names and versions
-python = ">=3.7,<4"
+python = ">=3.4,<4"
 # see https://mne.tools/stable/install/manual_install.html#installing-mne-python-with-all-dependencies
 # CondaPkg uses mamba by default
-mne = ">=1.0, <2"
+# currently broken when using conda deps
+# xref: https://github.com/beacon-biosignals/PyMNE.jl/issues/17
+# xref: https://github.com/cjdoris/PythonCall.jl/issues/315
+# mne = ">=1.4"
 
 [pip.deps]
-# Pip package names and versions
+mne = ">=1.4"
