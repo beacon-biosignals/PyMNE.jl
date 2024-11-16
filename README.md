@@ -1,7 +1,7 @@
 # PyMNE
 Julia interface to MNE-Python via PythonCall
 
-[![Build Status][build-img]][build-url] [![CodeCov][codecov-img]][codecov-url]
+[![Build Status][build-img]][build-url] [![CodeCov][codecov-img]][codecov-url] [![DOI](https://zenodo.org/badge/319362047.svg)](https://doi.org/10.5281/zenodo.14172217)
 
 [build-img]: https://github.com/beacon-biosignals/PyMNE.jl/actions/workflows/ci.yml/badge.svg
 [build-url]: https://github.com/beacon-biosignals/PyMNE.jl/actions
