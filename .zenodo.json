@@ -1,0 +1,19 @@
+{
+    "access_right": "open",
+    "license": "MIT",
+    "title": "beacon-biosignals/PyMNE.jl: Julia interface to MNE-Python",
+    "description": "A Julia package providing an interface to MNE-Python",
+    "upload_type": "software",
+    "creators": [
+        {
+            "affiliation": "Beacon Biosignals",
+            "name": "Alday, Phillip M.",
+            "orcid": "0000-0002-9984-5745"
+        },
+        {
+            "affiliation": "Beacon Biosignals",
+            "name": "Arslan, Alexander R.",
+            "orcid": "0000-0002-4132-068X"
+        }
+    ]
+}
