@@ -23,7 +23,7 @@ jobs:
         version:
           - 'min'
           - '1'
-          - 'nightly'
+          - 'pre'
         os:
           - ubuntu-latest
           - macOS-latest
@@ -33,6 +33,7 @@ jobs:
       - uses: julia-actions/setup-julia@v2
         with:
           version: ${{ matrix.version }}
+          show-versioninfo: 'false'
       - uses: julia-actions/cache@v2
       - uses: julia-actions/julia-buildpkg@v1
       - uses: julia-actions/julia-runtest@v1
