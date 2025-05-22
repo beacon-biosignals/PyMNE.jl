@@ -31,4 +31,17 @@ function __init__()
     return nothing
 end
 
+#####
+##### Onda-related stubs
+#####
+
+function set_montage! end
+function mne_info end
+function mne_raw end
+function onda_info end
+function onda_samples end
+
+export mne_info, set_montage!, mne_raw, onda_samples, onda_info
+
+
 end # module
