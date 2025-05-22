@@ -43,5 +43,4 @@ function onda_samples end
 
 export mne_info, set_montage!, mne_raw, onda_samples, onda_info
 
-
 end # module
