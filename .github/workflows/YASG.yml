@@ -18,19 +18,24 @@ jobs:
     # Run on push's or non-draft PRs
     if: (github.event_name == 'push') || (github.event.pull_request.draft == false)
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
     strategy:
       matrix:
         julia-version: [1.7]
     steps:
-      - uses: julia-actions/setup-julia@latest
+      - uses: julia-actions/setup-julia@fa02766e078afaaf09b14210362cee14137e6a32  # v3.0.2
         with:
           version: ${{ matrix.julia-version }}
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+        with:
+          persist-credentials: false
       - name: Instantiate `format` environment and format
         run: |
           julia --project=format -e 'using Pkg; Pkg.instantiate()'
           julia --project=format 'format/run.jl'
-      - uses: reviewdog/action-suggester@v1
+      - uses: reviewdog/action-suggester@aa38384ceb608d00f84b4690cacc83a5aba307ff # v1
         if: github.event_name == 'pull_request'
         with:
           tool_name: JuliaFormatter
