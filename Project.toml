@@ -1,7 +1,7 @@
 name = "PyMNE"
 uuid = "6c5003b2-cbe8-491c-a0d1-70088e6a0fd6"
-authors = ["Beacon Biosignals, Inc."]
 version = "0.2.4"
+authors = ["Beacon Biosignals, Inc."]
 
 [deps]
 CondaPkg = "992eb4ea-22a4-4c89-a5bb-47a3300528ab"
@@ -25,7 +25,7 @@ PythonCall = "0.9.4"
 Random = "1"
 Reexport = "1"
 Test = "1"
-TestSetExtensions = "3"
+TestSetExtensions = "3, 4"
 TimeSpans = "1"
 julia = "1.10"
 
