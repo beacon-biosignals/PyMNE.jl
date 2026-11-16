@@ -13,7 +13,7 @@ jobs:
       - name: Julia Setup
         uses: julia-actions/setup-julia@da908477b5db94c10ffce8cfea9f2b3b9d5db687 # v3.0.3
         with:
-          version: min    
+          version: lts    
       - name: Pkg.add("CompatHelper")
         run: julia -e 'using Pkg; Pkg.add("CompatHelper")'
       - name: CompatHelper.main()
